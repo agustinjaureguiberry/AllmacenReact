@@ -1,12 +1,12 @@
 import './style/Main.css'
 
-const Main = () => {
+const Menu = ({ children }) => {
 
     return (
         <div>
-            <h1>APP DE ALLMACEN</h1>
+            {children}
         </div>
     )
 }
 
-export default Main
+export default Menu

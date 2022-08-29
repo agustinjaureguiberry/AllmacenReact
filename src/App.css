@@ -16,3 +16,9 @@ body{
     height: 1500px;
     background-image: linear-gradient( rgb(50, 223, 223) 5%, rgb(33, 40, 138) 95%);
 }
+
+p {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
