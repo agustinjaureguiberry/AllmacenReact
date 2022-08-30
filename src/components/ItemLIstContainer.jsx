@@ -4,7 +4,7 @@ const ItemListContainer = (props) => {
     const { nombre, direccion, edad } = props
 
     return (
-        <div>
+        <div className="itemListContainer">
             <h1>Datos del creador</h1>
             <p>Nombre y Apellido: {nombre}</p>
             <p>Edad: {edad}</p>

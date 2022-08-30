@@ -1,12 +1,12 @@
 import './style/Main.css'
 
-const Menu = ({ children }) => {
+const Main = ({ children }) => {
 
     return (
-        <div>
+        <div className="mainContainer">
             {children}
         </div>
     )
 }
 
-export default Menu
+export default Main
