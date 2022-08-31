@@ -1,4 +1,4 @@
-import './style/Main.css'
+import './style/Main.scss'
 
 const Main = ({ children }) => {
 

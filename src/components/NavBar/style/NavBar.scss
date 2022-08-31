@@ -6,6 +6,15 @@
         box-sizing: border-box; 
     }
 
+@keyframes rotacion {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(359deg);
+        }
+      }
+
 .navContainer{
     background-color: rgba(99, 103, 104, 0.87);
     display: flex;
@@ -42,14 +51,7 @@ ul {
 }
 
 
-@keyframes rotacion {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(359deg);
-    }
-  }
+
 
 .loginContainer{
     display: flex;

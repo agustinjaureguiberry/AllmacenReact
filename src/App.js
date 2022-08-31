@@ -1,8 +1,7 @@
-import Header from "./components/Header";
-import Main from "./components/Main";
-import './App.css'
-import ItemListContainer from "./components/ItemLIstContainer";
-import Contador from "./components/Contador";
+import Header from "./components/Header/Header.jsx";
+import Main from "./components/Main/Main";
+import './App.scss'
+import ItemListContainer from "./components/ItemList/ItemLIstContainer";
 
 function App() {
   return (
@@ -10,7 +9,6 @@ function App() {
       <Header />
       <Main>
         <ItemListContainer nombre="Agustin Jaureguiberry" edad="29 Años" direccion="Calle Falsa 123" />
-        <Contador />
       </Main>
       <div>
 

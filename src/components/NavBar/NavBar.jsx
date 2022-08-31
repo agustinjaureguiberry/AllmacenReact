@@ -1,6 +1,6 @@
 import './style/NavBar.scss'
-import logo from '../logo.svg'
-import Carrito from './CartWidget.jsx'
+import logo from '../../logo.svg'
+import Carrito from '../CartWidget/CartWidget.jsx'
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';

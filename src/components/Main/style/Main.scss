@@ -1,0 +1,21 @@
+
+
+
+.mainContainer{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    .itemListContainer{
+        display: block;
+        margin: 20px;
+        h1 {
+            text-align: center;
+            width: 100%;
+            color: white;
+            font-size: 45px;
+        }
+    }
+}
+
