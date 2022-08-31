@@ -1,7 +1,7 @@
 import Header from "./components/Header/Header.jsx";
 import Main from "./components/Main/Main";
 import './App.scss'
-import ItemListContainer from "./components/ItemList/ItemLIstContainer";
+import ItemListContainer from "./components/ItemListContainer/ItemLIstContainer";
 
 function App() {
   return (

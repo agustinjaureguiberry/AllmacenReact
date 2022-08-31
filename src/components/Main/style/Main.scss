@@ -2,20 +2,7 @@
 
 
 .mainContainer{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-
-    .itemListContainer{
-        display: block;
-        margin: 20px;
-        h1 {
-            text-align: center;
-            width: 100%;
-            color: white;
-            font-size: 45px;
-        }
-    }
+    background-image: linear-gradient(to bottom left, rgb(50, 223, 223) 10%, rgb(33, 40, 138) 90%);
+    height: auto;
 }
 
