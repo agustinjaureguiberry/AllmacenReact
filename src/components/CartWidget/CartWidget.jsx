@@ -1,4 +1,4 @@
-import carro from '../assets/img/cart.svg'
+import carro from '../../assets/img/cart.svg'
 
 const Carrito = () => {
 
