@@ -5,10 +5,9 @@ import { Producto } from "./Producto/Producto.jsx"
 
 
 
-const ItemListContainer = (props) => {
+const ItemListContainer = () => {
 
     const [productos, setProductos] = useState([])
-
     useEffect(() => {
         ListaDePrecios()
             .then((resp) => {
@@ -18,6 +17,8 @@ const ItemListContainer = (props) => {
                 alert("ERROR AL CARGAR LA LISTA DE PRECIOS")
             })
     }, [])
+
+
 
 
     return (

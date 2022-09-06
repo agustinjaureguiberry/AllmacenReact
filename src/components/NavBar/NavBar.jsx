@@ -5,6 +5,7 @@ import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import { deepOrange } from '@mui/material/colors';
+import { Link } from 'react-router-dom';
 
 
 const NavBar = () => {
@@ -12,9 +13,9 @@ const NavBar = () => {
     return (
         <div className="navContainer">
             <ul>
-                <li href="#">Productos</li>
-                <li href="#">Stock</li>
-                <li href="#">Finanzas</li>
+                <li><Link to="/">Productos</Link></li>
+                <li><Link to="/Nosotros">Nosotros</Link></li>
+                <li><Link to="/Contacto">Contacto</Link></li>
             </ul>
             <div className='loginContainer'>
                 <img src={logo} alt="" className="logotipo" />

@@ -31,22 +31,26 @@ ul {
     height: auto;
     padding: 10px;
     li{
-        color: white;
         font-size: 20px;
         display: inline;
         padding: 0 50px 0 50px;
         width: auto;
         height: 100%;
+        a {
+            color: white;
+        }
     }
     li:hover {
         padding: 10px 50px 20px 50px ;
         cursor: pointer;
         background-color: white;
-        color: black;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
         transition: all 0.1s;
         box-shadow: 0 7px 20px 2px rgb(107, 105, 105);
+        a {
+            color: black;
+        }
     }
 }
 
