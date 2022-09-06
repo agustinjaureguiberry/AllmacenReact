@@ -1,6 +1,6 @@
-import imagen from '../../assets/img/imagen.webp'
-import './style/Header.scss'
-import NavBar from '../NavBar/NavBar'
+import imagen from '../../assets/img/imagen.webp';
+import './style/Header.scss';
+import NavBar from '../NavBar/NavBar';
 
 const Header = () => {
 
