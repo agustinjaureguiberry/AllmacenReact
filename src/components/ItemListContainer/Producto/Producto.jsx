@@ -12,7 +12,7 @@ export const Producto = ({ productos = [] }) => {
             {productos.map((prod) => {
                 return (
                     <div className="card" key={prod.cod}>
-                        <img Style="border-radius: 10px" src={prod.img} alt="Imagen de producto" />
+                        <img src={prod.img} alt="Imagen de producto" />
                         <p><strong>{prod.descripcion} </strong></p>
                         <h3>Precio: $ {prod.precio}</h3>
                         <Link to={`/${prod.cod}`}>

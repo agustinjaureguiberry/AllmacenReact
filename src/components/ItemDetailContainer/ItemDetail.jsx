@@ -25,14 +25,14 @@ export const ItemDetail = () => {
             .finally(() => {
                 setLoading(false)
             })
-    }, [])
+    }, [itemId, item])
 
 
 
     return (
-        <div>
+        <div className='itemContainer'>
             {
-                loading ? <h2>Cargando..</h2> : <Item id={item} />
+                loading ? <h2>Cargando..</h2> : <Item item={{ item }} />
             }
         </div>
     )

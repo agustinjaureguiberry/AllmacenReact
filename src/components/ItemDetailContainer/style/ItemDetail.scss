@@ -1,0 +1,25 @@
+
+.itemContainer{
+    width: 90%;
+    height:auto;
+    margin: 10%;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: "img","detail";
+}
+
+.imgContainer{
+    width: auto;
+    grid-area: "img";
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    align-items: center;
+}
+
+.detailCointainer {
+    grid-area: "detail";
+}
