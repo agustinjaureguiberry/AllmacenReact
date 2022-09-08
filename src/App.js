@@ -3,9 +3,7 @@ import Main from "./components/Main/Main";
 import './App.scss'
 import ItemListContainer from "./components/ItemListContainer/ItemLIstContainer";
 import { ItemDetail } from "./components/ItemDetailContainer/ItemDetail.jsx";
-import { Lacteos } from "./components/Lacteos/Lacteos.jsx";
-import { Dulces } from "./components/Dulces/Dulces.jsx";
-import { Almacen } from "./components/Almacen/Almacen.jsx";
+import { Filtrado } from "./components/Categorias/Categorias.jsx";
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 
@@ -18,9 +16,7 @@ function App() {
         <Routes>
           <Route path='/' element={<ItemListContainer />} />
           <Route path='/:itemId' element={<ItemDetail />} />
-          <Route path='/lacteos' element={<Lacteos />} />
-          <Route path='/almacen' element={<Almacen />} />
-          <Route path='/dulces' element={<Dulces />} />
+          <Route path='/productos/:categoriaId' element={<Filtrado />} />
           <Route path='*' element={<Navigate to="/" />} />
         </Routes>
       </Main>
