@@ -14,8 +14,9 @@ const NavBar = () => {
         <div className="navContainer">
             <ul>
                 <li><Link to="/">Productos</Link></li>
-                <li><Link to="/Nosotros">Nosotros</Link></li>
-                <li><Link to="/Contacto">Contacto</Link></li>
+                <li><Link to="/Lacteos">Lacteos</Link></li>
+                <li><Link to="/Almacen">Almacen</Link></li>
+                <li><Link to="/Dulces">Dulces</Link></li>
             </ul>
             <div className='loginContainer'>
                 <img src={logo} alt="" className="logotipo" />

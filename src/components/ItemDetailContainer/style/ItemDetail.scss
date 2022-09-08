@@ -1,25 +1,67 @@
 
 .itemContainer{
-    width: 90%;
+    width: auto;
     height:auto;
     margin: 10%;
+    border-radius: 2%;
     background-color: white;
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-areas: "img","detail";
+    grid-template-areas: 'img img compra' 
+    'detalle detalle detalle';
+     grid-template-columns: 1.5fr 1fr 1.5fr;
+     grid-template-rows: 1fr 1fr;
+
+
+    .imgContainer{
+        width: auto;
+        grid-area: img;
+        display: flex;
+        flex-flow: wrap;
+        justify-content: center;
+        justify-items: center;
+        text-align: center;
+        align-items: center;
+    }
+    .compraCointainer {
+        grid-area: compra;
+        border-left: solid black 1px;
+        margin: 10px;
+        padding: 15px;
+        display: flex;
+        flex-flow: column;
+        
+        h2 {
+            margin: 5% 0% 5% 0%;
+        }
+        #precio{
+            text-align: left;
+            color: black;
+            font-size: 300%;
+        }
+        #mdp{
+            text-decoration: underline;
+            color: blue;
+        }
+        .cantidad {
+            margin: 5%;
+        }
+        .botones{
+            margin-top: 40%;
+        }
+    }
+}
+.detailContainer {
+    grid-area: detalle ;
+    border-top: solid black 1px;
+    padding: 10% 2% 2% 2%;
+    height: auto;
+    h2{
+        text-align: center;
+    }
+    #detalle{
+        color: black;
+    }
 }
 
-.imgContainer{
-    width: auto;
-    grid-area: "img";
-    display: flex;
-    flex-flow: wrap;
-    justify-content: center;
-    justify-items: center;
-    text-align: center;
-    align-items: center;
-}
 
-.detailCointainer {
-    grid-area: "detail";
-}
+

@@ -38,7 +38,7 @@ export const ItemCantidad = ({ cantidad }) => {
                 id="controllable-states-demo"
                 options={options}
                 sx={{ width: 200 }}
-                renderInput={(params) => <TextField {...params} label="Controllable" />}
+                renderInput={(params) => <TextField {...params} label="Cantidad" />}
             />
         </div>
     );
