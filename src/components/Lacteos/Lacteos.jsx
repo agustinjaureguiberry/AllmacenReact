@@ -1,5 +1,5 @@
 
-export const Nosotros = () => {
+export const Lacteos = () => {
 
     return (
         <div>

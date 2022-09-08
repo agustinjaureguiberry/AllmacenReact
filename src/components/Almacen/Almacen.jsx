@@ -1,5 +1,5 @@
 
-export const Contacto = () => {
+export const Almacen = () => {
 
     return (
         <div>

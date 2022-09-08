@@ -1,6 +1,9 @@
 
 .itemListContainer{
         padding: 20px;
+        min-width: auto;
+        min-height: auto;
+        display: flex;
         h1 {
             text-align: center;
             width: 100%;
