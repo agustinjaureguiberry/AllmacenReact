@@ -1,10 +1,21 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { ItemCantidad } from "./ItemCantidad/ItemCantidad"
 import { BotonesItem } from "./BotonesItem/BotonesItem"
-
-
+import { useState } from 'react'
 
 export const Item = ({ item }) => {
+
+
+    const [cantidad, setCantidad] = useState(1)
+    const handleAgCarrito = () => {
+        const itemCarrito = {
+            cod: item.cod,
+            descripcion: item.descripcion,
+            precio: item.precio,
+            cantidad
+        }
+    }
+
     return (
         <div className='itemContainer'>
             <div className="imgContainer">
@@ -15,10 +26,10 @@ export const Item = ({ item }) => {
                 <p id="precio">${item.precio}</p>
                 <a id="mdp" href="#">ver medios de pago</a>
                 <div className="cantidad">
-                    <ItemCantidad cantidad={item.stock} />
+                    <ItemCantidad cantidad={item.stock} onSelect={setCantidad} />
                 </div>
                 <div className="botones">
-                    <BotonesItem />
+                    <BotonesItem handleAgCarrito={handleAgCarrito} />
                 </div>
             </div>
             <div className="detailContainer">

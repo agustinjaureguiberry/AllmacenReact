@@ -4,10 +4,10 @@ import Button from '@mui/material/Button';
 import './StyleBotones.scss'
 
 
-export const BotonesItem = () => {
+export const BotonesItem = ({ handleAgCarrito }) => {
     return (
         <Stack spacing={2} direction="row">
-            <Button id='agCarrito' variant="contained">Agregar al carrito</Button>
+            <Button onClick={handleAgCarrito} id='agCarrito' variant="contained">Agregar al carrito</Button>
             <Button id='comprar' variant="contained">Comprar</Button>
         </Stack>
     );

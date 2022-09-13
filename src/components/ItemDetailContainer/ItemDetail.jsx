@@ -14,6 +14,8 @@ export const ItemDetail = () => {
     const { itemId } = useParams()
 
 
+
+
     useEffect(() => {
         setLoading(true)
         ListaDePrecios()

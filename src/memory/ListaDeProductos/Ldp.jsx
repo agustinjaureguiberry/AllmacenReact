@@ -15,7 +15,7 @@ export const stock = [{
     descripcion: "Harina 0000 Blancaflor x 1 Kg",
     categoria: "almacen",
     precio: 140,
-    stock: 10
+    stock: 6
 },
 {
     img: "https://via.placeholder.com/200",
@@ -24,7 +24,7 @@ export const stock = [{
     descripcion: "Pan lactal Bimbo x 500 grs",
     categoria: "almacen",
     precio: 220,
-    stock: 10
+    stock: 8
 },
 {
     img: "https://via.placeholder.com/200",
@@ -51,7 +51,7 @@ export const stock = [{
     descripcion: "Dulce de leche Sancor x 500 grs",
     categoria: "dulces",
     precio: 175,
-    stock: 10
+    stock: 6
 },
 {
     img: "https://via.placeholder.com/200",
@@ -60,7 +60,7 @@ export const stock = [{
     descripcion: "Mermelada Arcor x 500 grs",
     categoria: "dulces",
     precio: 230,
-    stock: 10
+    stock: 5
 },
 {
     img: "https://via.placeholder.com/200",
@@ -69,7 +69,7 @@ export const stock = [{
     descripcion: "Arroz Tres Hermanos x 1 Kg",
     categoria: "almacen",
     precio: 98,
-    stock: 10
+    stock: 9
 },
 {
     img: "https://via.placeholder.com/200",
@@ -78,7 +78,7 @@ export const stock = [{
     descripcion: "Azucar Ledesma x 1 Kg",
     categoria: "dulces",
     precio: 140,
-    stock: 10
+    stock: 4
 },
 {
     img: "https://via.placeholder.com/200",
@@ -87,7 +87,7 @@ export const stock = [{
     descripcion: "Chocolate Cadbury x 82 grs",
     categoria: "dulces",
     precio: 365,
-    stock: 10
+    stock: 4
 },
 {
     img: "https://via.placeholder.com/200",
@@ -96,7 +96,7 @@ export const stock = [{
     descripcion: "Arroz Tres Hermanos x 1 Kg",
     categoria: "almacen",
     precio: 98,
-    stock: 10
+    stock: 15
 },
 {
     img: "https://via.placeholder.com/200",
@@ -105,7 +105,7 @@ export const stock = [{
     descripcion: "Azucar Ledesma x 1 Kg",
     categoria: "dulces",
     precio: 140,
-    stock: 10
+    stock: 7
 },
 {
     img: "https://via.placeholder.com/200",
@@ -114,5 +114,5 @@ export const stock = [{
     descripcion: "Chocolate Cadbury x 82 grs",
     categoria: "almacen",
     precio: 365,
-    stock: 10
+    stock: 2
 }]

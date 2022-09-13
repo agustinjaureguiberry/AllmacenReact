@@ -4,24 +4,26 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 
 
-export const ItemCantidad = ({ cantidad }) => {
+export const ItemCantidad = ({ cantidad, onSelect }) => {
+
+    const handleSelect = (event) => {
+        onSelect(event)
+    }
 
     const options = []
-    console.log(options)
-    const CargaOp = (options) => {
-        for (let i = 1; i < cantidad; i++) {
-            options.push(`${i}`)
-        };
 
+    const CargaOp = (options) => {
+        if (cantidad > 1) {
+            for (let i = 1; i <= cantidad; i++) {
+                options.push(`${i}`)
+            };
+        }
     }
 
     CargaOp(options)
 
     const [value, setValue] = React.useState(options[0]);
     const [inputValue, setInputValue] = React.useState('');
-
-
-
 
     return (
         <div>
@@ -30,6 +32,7 @@ export const ItemCantidad = ({ cantidad }) => {
                 value={value}
                 onChange={(event, newValue) => {
                     setValue(newValue);
+                    handleSelect(parseInt(newValue));
                 }}
                 inputValue={inputValue}
                 onInputChange={(event, newInputValue) => {
