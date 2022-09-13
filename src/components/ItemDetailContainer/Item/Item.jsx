@@ -14,6 +14,8 @@ export const Item = ({ item }) => {
             precio: item.precio,
             cantidad
         }
+        console.log(itemCarrito)
+        alert(`Agregaste nuevo producto, revise la consola`)
     }
 
     return (

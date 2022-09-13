@@ -32,7 +32,7 @@ export const ItemCantidad = ({ cantidad, onSelect }) => {
                 value={value}
                 onChange={(event, newValue) => {
                     setValue(newValue);
-                    handleSelect(parseInt(newValue));
+                    newValue ? handleSelect(parseInt(newValue)) : handleSelect(1);
                 }}
                 inputValue={inputValue}
                 onInputChange={(event, newInputValue) => {

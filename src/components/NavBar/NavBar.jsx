@@ -1,6 +1,6 @@
 import './style/NavBar.scss'
 import logo from '../../logo.svg'
-import Carrito from '../CartWidget/CartWidget.jsx'
+import { CartWidget } from '../CartWidget/CartWidget'
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
@@ -23,7 +23,7 @@ const NavBar = () => {
             </div>
 
             <div className='loginContainer'>
-                <Carrito></Carrito>
+                <Link to="/cart"><CartWidget /></Link>
                 <a className="login" href="http://www.google.com">
                     <Stack direction="row" spacing={2}>
                         <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>
