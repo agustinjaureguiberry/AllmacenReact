@@ -10,8 +10,9 @@ import { Link } from 'react-router-dom';
 
 const NavBar = () => {
 
+
     return (
-        <div className="navContainer">
+        <div id="navBar" className="navContainer">
             <ul>
                 <li><Link to="/">Productos</Link></li>
                 <li><Link to="/productos/Lacteos">Lacteos</Link></li>

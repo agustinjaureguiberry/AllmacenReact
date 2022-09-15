@@ -12,11 +12,13 @@ import { CartProvider } from "./components/Contextos/CartContext.jsx";
 function App() {
 
 
+
   return (
 
     <CartProvider >
       <BrowserRouter >
         <Header />
+
         <Main>
           <Routes>
             <Route path='/' element={<ItemListContainer />} />

@@ -6,8 +6,8 @@ const Header = () => {
 
     return (
         <div className="header">
-            <img src={imagen} alt="imagen" className="banner" />
-            <NavBar className="navBar" />
+            <img id="img" src={imagen} alt="imagen" className="banner" />
+            <NavBar />
         </div>
     )
 }
