@@ -24,12 +24,12 @@ const NavBar = () => {
 
             <div className='loginContainer'>
                 <Link to="/cart"><CartWidget /></Link>
-                <a className="login" href="#">
+                <Link to="/" className="login" >
                     <Stack direction="row" spacing={2}>
                         <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>
                         <span>User</span>
                     </Stack>
-                </a>
+                </Link>
 
             </div>
         </div>
