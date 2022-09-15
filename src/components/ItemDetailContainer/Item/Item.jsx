@@ -1,21 +1,29 @@
+
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { useContext, useState } from "react"
+import { CartContext } from "../../Contextos/CartContext"
 import { ItemCantidad } from "./ItemCantidad/ItemCantidad"
 import { BotonesItem } from "./BotonesItem/BotonesItem"
-import { useState } from 'react'
 
 export const Item = ({ item }) => {
 
-
+    const { cart, setCart, inCart, sumaCant } = useContext(CartContext)
+    console.log(cart)
     const [cantidad, setCantidad] = useState(1)
+
     const handleAgCarrito = () => {
         const itemCarrito = {
             cod: item.cod,
             descripcion: item.descripcion,
             precio: item.precio,
-            cantidad
+            cantidad,
+            stock: (item.stock - cantidad)
         }
-        console.log(itemCarrito)
-        alert(`Agregaste nuevo producto, revise la consola`)
+        if (inCart(itemCarrito)) {
+            sumaCant(itemCarrito)
+        } else {
+            setCart([...cart, itemCarrito])
+        }
     }
 
     return (

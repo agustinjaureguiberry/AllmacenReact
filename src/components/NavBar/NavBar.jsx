@@ -24,7 +24,7 @@ const NavBar = () => {
 
             <div className='loginContainer'>
                 <Link to="/cart"><CartWidget /></Link>
-                <a className="login" href="http://www.google.com">
+                <a className="login" href="#">
                     <Stack direction="row" spacing={2}>
                         <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>
                         <span>User</span>

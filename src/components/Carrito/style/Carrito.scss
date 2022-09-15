@@ -1,0 +1,74 @@
+.columnasContainer{
+    text-align: center;
+    display:flex;
+    flex-flow: column wrap;
+    height: 70px;
+    color: black;
+    padding: 2%;
+    border-bottom: solid 1px rgb(138, 138, 138);
+    .descripcion{
+        color: black;
+        width: 40%;
+    }
+    .precio{
+        color: black;
+        width: 20%;
+    }
+    .cantidad{
+        color: black;
+        width: 20%;
+    }
+    .precioTotal{
+        color: black;
+        width: 20%;
+    }
+}
+
+.cartContainer{
+    width: 90%;
+    height: 100%;
+    border-radius: 1%;
+    background-color: beige;
+    margin-top: 3%;
+    font-size: 17px;
+    .productoContainer{
+        text-align: center;
+        display:flex;
+        flex-flow: column wrap;
+        height: 70px;
+        color: black;
+        padding: 2%;
+        border-bottom: solid 1px rgb(138, 138, 138);
+        .descripcion{
+            color: black;
+            width: 40%;
+        }
+        .precio{
+            color: black;
+            width: 20%;
+        }
+        .cantidad{
+            color: black;
+            width: 20%;
+        }
+        .precioTotal{
+            color: black;
+            width: 20%;
+        }
+    }
+    .productoContainer:hover{
+        background-color:rgb(169, 169, 204);
+    }
+}
+
+.filaTotales{
+    margin-top: 2%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: end;
+    p{
+        font-size: larger;
+        font-weight:bold;
+        padding: 2%;
+    }
+}
