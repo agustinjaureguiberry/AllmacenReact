@@ -7,8 +7,8 @@ import { BotonesItem } from "./BotonesItem/BotonesItem"
 
 export const Item = ({ item }) => {
 
-    const { cart, setCart, enCart, sumaCant } = useContext(CartContext)
-
+    const { cart, setCart, inCart, sumaCant } = useContext(CartContext)
+    console.log(cart)
     const [cantidad, setCantidad] = useState(1)
 
     const handleAgCarrito = () => {
@@ -19,12 +19,10 @@ export const Item = ({ item }) => {
             cantidad,
             stock: (item.stock - cantidad)
         }
-        if (enCart(itemCarrito)) {
+        if (inCart(itemCarrito)) {
             sumaCant(itemCarrito)
-            console.log(cart)
         } else {
             setCart([...cart, itemCarrito])
-            console.log(cart)
         }
     }
 

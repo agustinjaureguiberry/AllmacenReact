@@ -14,7 +14,7 @@ function App() {
 
   const [cart, setCart] = useState([])
 
-  const enCart = (item) => {
+  const inCart = (item) => {
     return cart.some((prod) => prod.cod === item.cod)
   }
   const sumaCant = (item) => {
@@ -29,7 +29,7 @@ function App() {
 
   return (
 
-    <CartContext.Provider value={{ cart, setCart, enCart, sumaCant }}>
+    <CartContext.Provider value={{ cart, setCart, inCart, sumaCant }}>
       <BrowserRouter >
         <Header />
         <Main>
