@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react"
-import { ListaDePrecios } from "./Promises/PedirLdp"
+// import { ListaDePrecios } from "./Promises/PedirLdp"
 import './style/ItemListContainer.scss'
 import { Producto } from "./Producto/Producto.jsx"
 import { SpinnerMio } from "../Spinner/SpinnerMio"
+import { collection, getDocs } from "firebase/firestore"
+import { db } from "../../firebase/firebase"
 
 
 const ItemListContainer = () => {
@@ -12,19 +14,34 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         setLoading(true)
-        ListaDePrecios()
-            .then((resp) => {
-                setProductos(resp)
-            })
-            .catch((error) => {
-                alert("ERROR AL CARGAR LA LISTA DE PRECIOS")
+        const productoRef = collection(db, 'productos')
+        getDocs(productoRef)
+            .then((snapshot) => {
+                const productosDb = snapshot.docs.map((doc) => ({ cod: doc.id, ...doc.data() }))
+                setProductos(productosDb)
             })
             .finally(() => {
-
                 setLoading(false)
-            }
-            )
+            })
     }, [])
+
+
+
+    // useEffect(() => {
+    //     setLoading(true)
+    //     ListaDePrecios()
+    //         .then((resp) => {
+    //             setProductos(resp)
+    //         })
+    //         .catch((error) => {
+    //             alert("ERROR AL CARGAR LA LISTA DE PRECIOS")
+    //         })
+    //         .finally(() => {
+
+    //             setLoading(false)
+    //         }
+    //         )
+    // }, [])
 
 
 

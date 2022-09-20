@@ -8,7 +8,6 @@ import { BotonesItem } from "./BotonesItem/BotonesItem"
 export const Item = ({ item }) => {
 
     const { cart, setCart, inCart, sumaCant } = useContext(CartContext)
-    console.log(cart)
     const [cantidad, setCantidad] = useState(1)
 
     const handleAgCarrito = () => {
