@@ -27,25 +27,6 @@ const ItemListContainer = () => {
 
 
 
-    // useEffect(() => {
-    //     setLoading(true)
-    //     ListaDePrecios()
-    //         .then((resp) => {
-    //             setProductos(resp)
-    //         })
-    //         .catch((error) => {
-    //             alert("ERROR AL CARGAR LA LISTA DE PRECIOS")
-    //         })
-    //         .finally(() => {
-
-    //             setLoading(false)
-    //         }
-    //         )
-    // }, [])
-
-
-
-
     return (
         <div className="itemListContainer">
             {

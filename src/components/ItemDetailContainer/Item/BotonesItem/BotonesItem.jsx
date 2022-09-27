@@ -9,7 +9,7 @@ export const BotonesItem = ({ handleAgCarrito }) => {
     return (
         <Stack spacing={2} direction="row">
             <Button onClick={handleAgCarrito} id='agCarrito' variant="contained">Agregar al carrito</Button>
-            <Link to="/cart"><Button id='comprar' variant="contained">Comprar</Button></Link>
+            <Link to="/Compra"><Button onClick={handleAgCarrito} id='comprar' variant="contained">Comprar</Button></Link>
         </Stack>
     );
 }
