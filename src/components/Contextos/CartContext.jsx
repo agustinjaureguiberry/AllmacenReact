@@ -23,9 +23,13 @@ export const CartProvider = ({ children }) => {
         }
     }
 
+    const sumaCarrito = () => {
+        return cart.reduce((acum, item) => acum + (item.cantidad * item.precio), 0)
+    }
+
 
     return (
-        <CartContext.Provider value={{ cart, setCart, inCart, sumaCant }}>
+        <CartContext.Provider value={{ cart, setCart, inCart, sumaCant, sumaCarrito }}>
             {children}
         </CartContext.Provider>
     )

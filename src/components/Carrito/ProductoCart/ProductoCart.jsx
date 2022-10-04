@@ -1,15 +1,30 @@
-import { Link } from 'react-router-dom'
-import ViewInArOutlinedIcon from '@mui/icons-material/ViewInArOutlined';
+import { Navigate, Link } from 'react-router-dom'
+import { useContext } from 'react';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { CartContext } from '../../Contextos/CartContext';
 
 export const ProductoCart = ({ item }) => {
+
+    const { cart, setCart } = useContext(CartContext)
+
+    const quitaProd = (id) => {
+        setCart(cart.filter((item) => item.cod !== id))
+        return (
+            <Navigate to="/cart" />
+        )
+    }
+
+
     return (
 
-        <div className='productoContainer'>
-            <p className='descripcion'>{item.descripcion}</p>
+        <div className='prodLista grid'>
+            <p className='descripcion'><Link to={`/${item.cod}`}>{item.descripcion}</Link></p>
             <p className='precio'>${item.precio}</p>
-            <input type={'number'} className='cantidad' />
+            <div className='cantidad'>
+                <input type={'number'} id="inputCantidad" placeholder={item.cantidad} />
+            </div>
             <p className='precioTotal'>${(item.precio * item.cantidad)}</p>
-            <Link className='ver' to={`/${item.cod}`}><ViewInArOutlinedIcon color="primary" sx={{ fontSize: 35 }} /></Link>
+            <DeleteIcon onClick={() => quitaProd(item.cod)} color="error" sx={{ fontSize: 35 }} />
         </div>
 
 

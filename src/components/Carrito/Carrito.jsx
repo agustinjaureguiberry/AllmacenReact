@@ -7,17 +7,7 @@ import { Navigate, Link } from "react-router-dom"
 
 
 export const Carrito = () => {
-    const { cart } = useContext(CartContext)
-
-    const sumaCarrito = () => {
-        var total = 0
-        // eslint-disable-next-line array-callback-return
-        cart.map((item) => {
-            total += (item.cantidad * item.precio)
-        })
-        return total
-    }
-
+    const { cart, setCart, sumaCarrito } = useContext(CartContext)
 
     if (cart.length <= 0) {
         return (
@@ -25,14 +15,22 @@ export const Carrito = () => {
         )
     }
 
+    const vaciarCarrito = () => {
+        setCart([])
+        return (
+            <Navigate to="/" />
+        )
+    }
+
+
     return (
         <div className='cartContainer'>
-            <div className='columnasContainer'>
+            <div className='columnasContainer grid'>
                 <p className='descripcion'>Descripcion</p>
                 <p className='precio'>Precio</p>
                 <p className='cantidad'>Cantidad</p>
                 <p className='precioTotal'>Subtotal</p>
-                <p className='ver'>Ver</p>
+                <p className='borrar'>Borrar</p>
             </div>
             {
                 cart.map((item) => {
@@ -48,9 +46,11 @@ export const Carrito = () => {
                 <p>IVA: 21%</p>
                 <p>Precio final: $ {(sumaCarrito() * 1.21).toFixed(2)}</p>
             </div>
-            <div className='botonCompra'>
+            <div className='botones'>
+                <Button onClick={vaciarCarrito} id='borrarCarrito' variant="contained">Borrar Carrito</Button>
                 <Link to='/Compra'><Button id='comprar' variant="contained">Terminar Compra</Button></Link>
+
             </div>
-        </div>
+        </div >
     )
 }
