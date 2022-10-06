@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { Item } from './Item/Item'
 import { useParams } from 'react-router-dom'
 import { SpinnerMio } from '../Spinner/SpinnerMio'
-import { doc, getDoc, getDocs } from 'firebase/firestore'
+import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../../firebase/firebase'
 
 

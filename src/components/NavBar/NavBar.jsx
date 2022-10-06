@@ -6,9 +6,13 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import { deepOrange } from '@mui/material/colors';
 import { Link } from 'react-router-dom';
+import { useContext } from "react"
+import { CartContext } from "../Contextos/CartContext"
 
 
 const NavBar = () => {
+
+    const { cart } = useContext(CartContext)
 
     return (
         <div className="navContainer">
@@ -23,7 +27,11 @@ const NavBar = () => {
             </div>
 
             <div className='loginContainer'>
-                <Link to="/cart"><CartWidget /></Link>
+                {
+                    (cart.length > 0) ?
+                        <Link to="/cart"><CartWidget /></Link>
+                        : <Link to="/"><CartWidget /></Link>
+                }
                 <Link to="/" className="login" >
                     <Stack direction="row" spacing={2}>
                         <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>

@@ -1,29 +1,3 @@
-.columnasContainer{
-    text-align: center;
-    display:flex;
-    flex-flow: column wrap;
-    height: 70px;
-    color: black;
-    padding: 2%;
-    border-bottom: solid 1px rgb(138, 138, 138);
-    .descripcion{
-        color: black;
-        width: 40%;
-    }
-    .precio{
-        color: black;
-        width: 20%;
-    }
-    .cantidad{
-        color: black;
-        width: 20%;
-    }
-    .precioTotal{
-        color: black;
-        width: 20%;
-    }
-}
-
 .cartContainer{
     width: 90%;
     height: 100%;
@@ -31,35 +5,81 @@
     background-color: beige;
     margin-top: 3%;
     font-size: 17px;
-    .productoContainer{
+    .grid{
+        display:grid;
+        grid-template-areas: "descripcion descripcion precio cantidad precioTotal borrar" ;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+    .columnasContainer{
         text-align: center;
-        display:flex;
-        flex-flow: column wrap;
         height: 70px;
         color: black;
-        padding: 2%;
+        padding: 2% 5% 2% 2%;
         border-bottom: solid 1px rgb(138, 138, 138);
         .descripcion{
-            color: black;
-            width: 40%;
+            grid-area: descripcion;
+            text-align: center;
         }
         .precio{
-            color: black;
-            width: 20%;
+            grid-area: precio;
+            text-align: center;
         }
         .cantidad{
-            color: black;
-            width: 20%;
+            grid-area: cantidad;
+            text-align: center;
         }
         .precioTotal{
-            color: black;
-            width: 20%;
+            grid-area: precioTotal;
+            text-align: center;
         }
+        .borrar{
+            grid-area: borrar;
+            text-align: center;
+        }
+    }
+    .prodLista{
+        text-align: center;
+        height: 60px;
+        color: black;
+        grid-gap: 5px;
+        padding: 1% 5% 1% 2%;
+        border-bottom: dashed 1px rgb(138, 138, 138);
+        .descripcion{
+            grid-area: descripcion;
+            text-align: center;
+        }
+        .precio{
+            grid-area: precio;
+            text-align: center;
+        }
+        .cantidad{
+            grid-area: cantidad;
+            text-align: center;
+            align-items: center;
+            #inputCantidad{
+                text-align: center;
+                width: 50px;
+                height: 35px;
+            }
+        }
+        .precioTotal{
+            grid-area: precioTotal;
+            text-align: center;
+        }
+        .borrar{
+            grid-area: borrar;
+            text-align: center;
+        }
+
     }
     .productoContainer:hover{
         background-color:rgb(169, 169, 204);
     }
 }
+
+
+
+
 
 .filaTotales{
     margin-top: 2%;
@@ -71,4 +91,20 @@
         font-weight:bold;
         padding: 2%;
     }
+}
+
+#comprar{
+    background-color: rgb(40, 172, 28);
+}
+#borrarCarrito{
+    background-color: rgb(224, 68, 68);
+}
+
+.botones{   
+    display:flex;
+    flex-flow: row;
+    justify-content:space-evenly;
+    padding: 2%;
+    width: 100%;
+    text-align: right ;
 }

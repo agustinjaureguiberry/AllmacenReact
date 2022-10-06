@@ -1,0 +1,13 @@
+
+.carroContainer{
+    span{
+        visibility:hidden;
+        opacity: 0;
+    }
+    .spanView{
+        visibility: inherit;
+        opacity: 1;
+        transition: all 0.5s ease-in-out;
+    }
+
+}
