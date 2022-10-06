@@ -7,7 +7,7 @@ import { Navigate, Link } from "react-router-dom"
 
 
 export const Carrito = () => {
-    const { cart, setCart, sumaCarrito } = useContext(CartContext)
+    const { cart, sumaCarrito, vaciarCarrito } = useContext(CartContext)
 
     if (cart.length <= 0) {
         return (
@@ -15,12 +15,7 @@ export const Carrito = () => {
         )
     }
 
-    const vaciarCarrito = () => {
-        setCart([])
-        return (
-            <Navigate to="/" />
-        )
-    }
+
 
 
     return (
