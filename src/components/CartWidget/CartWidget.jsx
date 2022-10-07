@@ -7,6 +7,7 @@ import './style/style.scss'
 
 export const CartWidget = () => {
     const { cart } = useContext(CartContext)
+
     return (
         <div className='carroContainer'>
             <span className={(cart.length > 0) ? "spanView" : ""} >{cart.reduce((acum, item) => acum + item.cantidad, 0)}</span>

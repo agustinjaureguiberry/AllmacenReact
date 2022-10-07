@@ -8,6 +8,7 @@ import { Filtrado } from "./components/Categorias/Categorias.jsx";
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { CartProvider } from "./components/Contextos/CartContext.jsx";
 import { Compra } from "./components/Compra/Compra.jsx";
+import { LoginContainer } from "./components/Usuarios/LoginContainer.jsx";
 
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
             <Route path='/:itemId' element={<ItemDetail />} />
             <Route path='/productos/:categoriaId' element={<Filtrado />} />
             <Route path='/Compra' element={<Compra />} />
-            <Route path='/cart' element={<Carrito />} />
+            <Route path='/Cart' element={<Carrito />} />
+            <Route path='/Login' element={<LoginContainer />} />
             <Route path='*' element={<Navigate to="/" />} />
           </Routes>
         </Main>

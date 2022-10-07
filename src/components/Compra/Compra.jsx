@@ -5,6 +5,7 @@ import { useContext, useState } from 'react';
 import { CartContext } from '../Contextos/CartContext';
 import { addDoc, collection } from 'firebase/firestore'
 import { Navigate, Link } from "react-router-dom"
+import Swal from 'sweetalert2'
 import './Style/Compra.scss'
 import { db } from '../../firebase/firebase';
 
@@ -91,8 +92,14 @@ export const Compra = () => {
         )
     }
 
+
     if (cart.length === 0) {
-        return <Navigate to='/' />
+        Swal.fire({
+            icon: 'error',
+            title: '¡Cantidad de articulos 0!',
+            text: 'No puede ingresar a la compra sin articulos',
+        })
+        return <Navigate to="/" />
     }
 
     return (

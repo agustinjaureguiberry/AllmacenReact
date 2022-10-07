@@ -1,0 +1,22 @@
+
+.loguerContainer{
+    width: 90%;
+    height: 60%;
+    background-color: beige;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    h2{
+        font-size: 40px;
+    }
+    p{
+        font-size: 25px;
+    }
+    .user{
+        margin: 2%;
+    }
+    .pass{
+        margin: 4%;
+    }
+}

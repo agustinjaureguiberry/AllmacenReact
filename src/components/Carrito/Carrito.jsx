@@ -4,19 +4,21 @@ import { CartContext } from "../Contextos/CartContext"
 import Button from '@mui/material/Button';
 import './style/Carrito.scss'
 import { Navigate, Link } from "react-router-dom"
-
+import Swal from 'sweetalert2'
 
 export const Carrito = () => {
     const { cart, sumaCarrito, vaciarCarrito } = useContext(CartContext)
 
-    if (cart.length <= 0) {
+    if (cart.length === 0) {
+        Swal.fire({
+            icon: 'error',
+            title: '¡Cantidad de articulos 0!',
+            text: 'No puede ingresar al carrito sin articulos',
+        })
         return (
             <Navigate to="/" />
         )
     }
-
-
-
 
     return (
         <div className='cartContainer'>
