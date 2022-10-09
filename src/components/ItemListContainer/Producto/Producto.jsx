@@ -15,7 +15,7 @@ export const Producto = ({ productos = [] }) => {
                         <img src={prod.img} alt="Imagen de producto" />
                         <p><strong>{prod.descripcion} </strong></p>
                         <h3>Precio: $ {prod.precio}</h3>
-                        <Link to={`/${prod.cod}`}>
+                        <Link to={`/item/${prod.cod}`}>
                             <Stack direction="row" spacing={2}>
                                 <Button variant="contained" color="success">
                                     Ver Mas

@@ -5,6 +5,7 @@ import { useContext, useState } from 'react';
 import { CartContext } from '../Contextos/CartContext';
 import { addDoc, collection } from 'firebase/firestore'
 import { Navigate, Link } from "react-router-dom"
+import Swal from 'sweetalert2'
 import './Style/Compra.scss'
 import { db } from '../../firebase/firebase';
 
@@ -91,8 +92,14 @@ export const Compra = () => {
         )
     }
 
+
     if (cart.length === 0) {
-        return <Navigate to='/' />
+        Swal.fire({
+            icon: 'error',
+            title: '¡Cantidad de articulos 0!',
+            text: 'No puede ingresar a la compra sin articulos',
+        })
+        return <Navigate to="/" />
     }
 
     return (
@@ -106,7 +113,7 @@ export const Compra = () => {
                 noValidate
                 autoComplete="off"
             >
-                <TextField onChange={handleForm} name='nombre' id="outlined-basic" label="Apellido y nombre" variant="outlined" />
+                <TextField onChange={handleForm} name='nombre' id="outlined-basic" label="Apellido y nombre" variant="outlined" margin="normal" />
                 <TextField onChange={handleForm} name='dni' type='number' id="outlined-basic" label="DNI" variant="outlined" />
                 <TextField onChange={handleForm} name='email' type='email' id="outlined-basic" label="Email" variant="outlined" />
                 <TextField onChange={handleForm} name='direccion' id="outlined-basic" label="Direccion" variant="outlined" />

@@ -10,10 +10,10 @@ import { useContext } from "react"
 import { CartContext } from "../Contextos/CartContext"
 
 
+
 const NavBar = () => {
 
     const { cart } = useContext(CartContext)
-
     return (
         <div className="navContainer">
             <ul>
@@ -25,17 +25,16 @@ const NavBar = () => {
             <div className='loginContainer'>
                 <img src={logo} alt="" className="logotipo" />
             </div>
-
             <div className='loginContainer'>
                 {
                     (cart.length > 0) ?
                         <Link to="/cart"><CartWidget /></Link>
                         : <Link to="/"><CartWidget /></Link>
                 }
-                <Link to="/" className="login" >
+                <Link to="/Login" className="login" >
                     <Stack direction="row" spacing={2}>
-                        <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>
-                        <span>User</span>
+                        <Avatar sx={{ bgcolor: deepOrange[500] }}>A</Avatar>
+                        <span>Admin</span>
                     </Stack>
                 </Link>
 
