@@ -18,7 +18,7 @@ export const ProductoCart = ({ item }) => {
     return (
 
         <div className='prodLista grid'>
-            <p className='descripcion'><Link to={`/${item.cod}`}>{item.descripcion}</Link></p>
+            <p className='descripcion'><Link to={`/item/${item.cod}`}>{item.descripcion}</Link></p>
             <p className='precio'>${item.precio}</p>
             <div className='cantidad'>
                 <input type={'number'} id="inputCantidad" placeholder={item.cantidad} />

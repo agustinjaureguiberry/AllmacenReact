@@ -1,4 +1,3 @@
-import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import * as React from 'react';
 import { useState } from 'react'
@@ -11,22 +10,56 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Swal from 'sweetalert2'
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../../firebase/firebase';
+
 
 export const Login = (options) => {
 
+    //FUNCIONES NECESARIAS PARA LOGUEO
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const [form, setForm] = useState({
+        usuario: '',
+        password: ''
+    })
+
+    const handleForm = (e) => {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        })
     }
 
+
+    const handleSubmit = async (e) => {
+
+        e.preventDefault();
+        signInWithEmailAndPassword(auth, form.usuario, form.password)
+            .then((e) => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Ingreso con exito',
+                    showConfirmButton: false,
+                    timer: 1300
+                })
+            })
+            .catch((e) => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Algo anduvo mal',
+                    text: 'Revise los campos de ingreso',
+                })
+            })
+
+    }
+
+
+    //FUNCIONES NECESARIAS PARA VISUALIZACION DE PASSWORD EN ESCRITURA
     const [values, setValues] = useState({
         showPassword: false,
     });
-
-    const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-    };
 
     const handleClickShowPassword = () => {
         setValues({
@@ -39,28 +72,24 @@ export const Login = (options) => {
         event.preventDefault();
     };
 
+
+
+    //RETORNO FINAL
+
     return (
         <>
             <form onSubmit={handleSubmit} className='loguerContainer' action="">
                 <h2>Solo administradores</h2>
                 <p>Debera loguearse antes de continuar</p>
-                <Stack className='user' sx={{ width: 350 }} spacing={1} >
-                    <Autocomplete
-                        {...options}
-                        id="disable-close-on-select"
-                        disableCloseOnSelect
-                        renderInput={(params) => (
-                            <TextField {...params} label="Usuario" variant="standard" />
-                        )}
-                    />
-                </Stack>
+                <TextField name='usuario' onChange={handleForm} id="outlined-basic" sx={{ width: 350 }} label="Usuario" variant="standard" />
                 <FormControl className='pass' sx={{ width: 350 }} variant="standard">
                     <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
                     <Input
+                        name='password'
                         id="standard-adornment-password"
                         type={values.showPassword ? 'text' : 'password'}
                         value={values.password}
-                        onChange={handleChange('password')}
+                        onChange={handleForm}
                         endAdornment={
                             <InputAdornment position="end">
                                 <IconButton
@@ -75,7 +104,7 @@ export const Login = (options) => {
                     />
                 </FormControl>
                 <Stack direction="row" spacing={1}>
-                    <IconButton type='submit' aria-label="fingerprint" color="success">
+                    <IconButton onClick={handleSubmit} type='submit' aria-label="fingerprint" color="success">
                         <Fingerprint sx={{ width: 350 }} />
                     </IconButton>
                 </Stack>

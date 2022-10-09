@@ -113,7 +113,7 @@ export const Compra = () => {
                 noValidate
                 autoComplete="off"
             >
-                <TextField onChange={handleForm} name='nombre' id="outlined-basic" label="Apellido y nombre" variant="outlined" />
+                <TextField onChange={handleForm} name='nombre' id="outlined-basic" label="Apellido y nombre" variant="outlined" margin="normal" />
                 <TextField onChange={handleForm} name='dni' type='number' id="outlined-basic" label="DNI" variant="outlined" />
                 <TextField onChange={handleForm} name='email' type='email' id="outlined-basic" label="Email" variant="outlined" />
                 <TextField onChange={handleForm} name='direccion' id="outlined-basic" label="Direccion" variant="outlined" />

@@ -22,12 +22,12 @@ function App() {
         <Main>
           <Routes>
             <Route path='/' element={<ItemListContainer />} />
-            <Route path='/:itemId' element={<ItemDetail />} />
+            <Route path='/item/:itemId' element={<ItemDetail />} />
             <Route path='/productos/:categoriaId' element={<Filtrado />} />
             <Route path='/Compra' element={<Compra />} />
             <Route path='/Cart' element={<Carrito />} />
             <Route path='/Login' element={<LoginContainer />} />
-            <Route path='*' element={<Navigate to="/" />} />
+            <Route path='/*' element={<Navigate to="/" />} />
           </Routes>
         </Main>
 
