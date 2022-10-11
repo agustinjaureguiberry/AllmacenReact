@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useContext, useState } from 'react';
 import { CartContext } from '../Contextos/CartContext';
-import { addDoc, collection } from 'firebase/firestore'
+import { addDoc, collection, documentId, getDocs, where, query, writeBatch } from 'firebase/firestore'
 import { Navigate, Link } from "react-router-dom"
 import Swal from 'sweetalert2'
 import './Style/Compra.scss'
@@ -11,6 +11,7 @@ import { db } from '../../firebase/firebase';
 
 
 export const Compra = () => {
+
 
     const { cart, sumaCarrito, vaciarCarrito } = useContext(CartContext)
 
@@ -35,15 +36,20 @@ export const Compra = () => {
         })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const refDb = collection(db, 'ordenes')
+
+        const batch = writeBatch(db)
+        const productosRef = collection(db, 'productos')
+        const q = query(productosRef, where(documentId(), 'in', cart.map(item => item.cod)))
 
         const pedido = {
             comprador: form,
             items: cart,
             total: (sumaCarrito() * 1.21)
         }
+
         if (form.nombre.length <= 0) {
             alert("Nombre y apellido Incorrecto")
             return
@@ -70,19 +76,45 @@ export const Compra = () => {
             return
         }
 
-        addDoc(refDb, pedido)
-            .then((doc) => {
-                setOrderId(doc.id)
-                vaciarCarrito()
+        const productos = await getDocs(q)
+        const noStock = []
+
+        productos.docs.forEach((doc) => {
+            const item = cart.find(item => item.id === doc.cod)
+            console.log(doc.data().stock)
+            console.log(item.cantidad)
+            if (doc.data().stock >= item.cantidad) {
+                batch.update(doc.ref, {
+                    stock: doc.data().stock - item.cantidad
+                })
+            } else {
+                noStock.push(item)
+            }
+        })
+        if (noStock.length === 0) {
+            batch.commit()
+                .then(() => {
+                    addDoc(refDb, pedido)
+                        .then((doc) => {
+                            setOrderId(doc.id)
+                            vaciarCarrito()
+                        })
+                })
+        } else {
+            var productosSinStock = ''
+            noStock.forEach(e => productosSinStock += `${e.descripcion}, `)
+            Swal.fire({
+                icon: 'error',
+                title: 'Los siguientes productos no tienen stock disponible:',
+                text: productosSinStock
             })
+        }
 
 
     }
 
     if (orderId) {
-        console.log(orderId)
         return (
-
             < div className='muestraOrden' >
                 <h2>Compra Exitosa</h2>
                 <p>Su numero de orden es: <strong>{orderId}</strong></p>

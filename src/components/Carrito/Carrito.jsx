@@ -45,7 +45,7 @@ export const Carrito = () => {
             </div>
             <div className='botones'>
                 <Button onClick={vaciarCarrito} id='borrarCarrito' variant="contained">Borrar Carrito</Button>
-                <Link to='/Compra'><Button id='comprar' variant="contained">Terminar Compra</Button></Link>
+                <Link onClick={console.log(cart)} to='/Compra'><Button id='comprar' variant="contained">Terminar Compra</Button></Link>
 
             </div>
         </div >

@@ -1,6 +1,5 @@
 import TextField from '@mui/material/TextField';
-import * as React from 'react';
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import Stack from '@mui/material/Stack';
 import Fingerprint from '@mui/icons-material/Fingerprint';
 import IconButton from '@mui/material/IconButton';
@@ -10,16 +9,17 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import Swal from 'sweetalert2'
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../../firebase/firebase';
+
+import { UserContext } from '../../Contextos/UserContext';
+
+
 
 
 export const Login = (options) => {
 
+    const { loguer } = useContext(UserContext)
+
     //FUNCIONES NECESARIAS PARA LOGUEO
-
-
     const [form, setForm] = useState({
         usuario: '',
         password: ''
@@ -33,26 +33,9 @@ export const Login = (options) => {
     }
 
 
-    const handleSubmit = async (e) => {
-
+    const handleSubmit = (e) => {
         e.preventDefault();
-        signInWithEmailAndPassword(auth, form.usuario, form.password)
-            .then((e) => {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Ingreso con exito',
-                    showConfirmButton: false,
-                    timer: 1300
-                })
-            })
-            .catch((e) => {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Algo anduvo mal',
-                    text: 'Revise los campos de ingreso',
-                })
-            })
-
+        loguer(form)
     }
 
 
