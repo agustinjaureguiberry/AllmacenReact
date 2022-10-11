@@ -17,15 +17,20 @@ export const CartProvider = ({ children }) => {
         var cantidadItem = cart.find((prod) => prod.cod === item.cod)
         if (cantidadItem.cantidad <= item.stock) {
             cantidadItem.cantidad += item.cantidad
-            cantidadItem.stock -= item.cantidad
         } else {
             alert("No hay suficiente Stock")
         }
+    }
+    const cambiaCant = (item) => {
+        var cantidadItem = cart.find((prod) => prod.cod === item.cod)
+        cantidadItem.cantidad = item.cantidad
     }
 
     const sumaCarrito = () => {
         return cart.reduce((acum, item) => acum + (item.cantidad * item.precio), 0)
     }
+
+
 
     const vaciarCarrito = () => {
         setCart([])
@@ -36,7 +41,7 @@ export const CartProvider = ({ children }) => {
 
 
     return (
-        <CartContext.Provider value={{ cart, setCart, inCart, sumaCant, sumaCarrito, vaciarCarrito }}>
+        <CartContext.Provider value={{ cart, setCart, inCart, sumaCant, cambiaCant, sumaCarrito, vaciarCarrito }}>
             {children}
         </CartContext.Provider>
     )

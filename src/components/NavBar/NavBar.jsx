@@ -8,12 +8,15 @@ import { deepOrange } from '@mui/material/colors';
 import { Link } from 'react-router-dom';
 import { useContext } from "react"
 import { CartContext } from "../Contextos/CartContext"
+import { UserContext } from '../Contextos/UserContext';
 
 
 
 const NavBar = () => {
 
     const { cart } = useContext(CartContext)
+    const { user } = useContext(UserContext)
+
     return (
         <div className="navContainer">
             <ul>
@@ -27,14 +30,23 @@ const NavBar = () => {
             </div>
             <div className='loginContainer'>
                 {
+                    user && <Link className='carroContainer' to='/'>Modificaciones</Link>
+                }
+                {
                     (cart.length > 0) ?
                         <Link to="/cart"><CartWidget /></Link>
                         : <Link to="/"><CartWidget /></Link>
                 }
                 <Link to="/Login" className="login" >
                     <Stack direction="row" spacing={2}>
-                        <Avatar sx={{ bgcolor: deepOrange[500] }}>A</Avatar>
-                        <span>Admin</span>
+                        {
+                            user ? <>
+                                <Avatar sx={{ bgcolor: deepOrange[500] }}>A</Avatar>
+                                <span>{user.email}</span>
+                            </> :
+                                <span>Logueate</span>
+                        }
+
                     </Stack>
                 </Link>
 

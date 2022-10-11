@@ -22,3 +22,19 @@
         margin: 4%;
     }
 }
+
+.logout{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    h2{
+        width: 100%;
+        font-size: 40px;
+        margin: 1%;
+        border-bottom: solid gray 1px;
+    }
+    p{
+        margin: 3% 0 3% 0;
+    }
+}
